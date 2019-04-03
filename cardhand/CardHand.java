@@ -1,18 +1,31 @@
 package cardhand;
 
-public class CardHand {
+import java.util.Scanner;
 
-	public CardHand() {
-		// TODO Auto-generated constructor stub
-	}
+public class CardGame {
 
-	public void addCard() {
+	static Scanner scan = new Scanner(System.in);
+	
+	public static void main(String[] args) {
+		CardHand<Card> cardHand = new CardHand<Card>();
 		
-	}
-	
-	public void play() {
+		System.out.println("-----------draw 4 cards!----------\n");
+		for (int i=0;i<4;i++) {	
+			Card initCard = new Card();
+			cardHand.addCard(initCard);
+			System.out.println(" ___________you drew_____________\n|"+initCard+"|\n");
+		}
 		
+		System.out.println("-----add a new Card to hand?-----");
+		
+		while (!"exit".equals(scan.nextLine())){
+			Card newCard = new Card();
+			cardHand.addCard(newCard);
+			System.out.println(" _____you drew a new card!_______\n|"+newCard+"|\n");
+			System.out.println("-----add a new Card to hand?-----");
+
+		}
 	}
-	
-	
 }
+
+
