@@ -1,6 +1,7 @@
 package cardhand;
 
 import java.util.Random;
+import java.util.Set;
 
 public class Card {
 
@@ -35,10 +36,11 @@ public class Card {
 			Random random = new Random();
 			int index = random.nextInt(values().length);
 			return values()[index].toString();
+
 		}
-		
+
 	}
-	
+
 	public enum Rank{
 		ACE("Ace"),
 		KING("King"),
@@ -70,6 +72,10 @@ public class Card {
 			return values()[index].toString();
 
 		}
+
+		//use to get the value as a string.
+		//Rank.ACE.getValue();
+
 	};
 
 	@Override
