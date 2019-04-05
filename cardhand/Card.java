@@ -3,9 +3,19 @@ package cardhand;
 import java.util.Random;
 
 public class Card {
+	
+	public  String rank;
+	public  String suit;
+	
+	public String getSuit() {
+		return suit;
+	}
 
-	private String suit;
-	private String rank;
+	public  String getRank() {
+		return rank;
+	}
+
+	
 
 	public Card() {
 		this.suit = Suit.randomSuit();
@@ -13,20 +23,24 @@ public class Card {
 	}
 
 	public enum Suit {
-		HEARTS ("Hearts"),
-		SPADES("Spades"),
-		CLUBS("Clubs"),
-		DIAMONDS("Diamonds");
-
+		SPADES("Spades",0),
+		HEARTS ("Hearts",1),
+		DIAMONDS("Diamonds",2),
+		CLUBS("Clubs",3);
+		
+		public static int intValue;
 		private String value;
 
 		public String getValue() {
 			return value;
 		}
-		private Suit(String value) {
+		public int getIntValue() {
+			return intValue;
+		}
+		private Suit(String value,int intValue) {
 			this.value=value;
 		}
-
+		
 		@Override
 		public String toString() {
 			return this.getValue();
@@ -36,7 +50,7 @@ public class Card {
 			int index = random.nextInt(values().length);
 			return values()[index].toString();
 		}
-		
+				
 	}
 	
 	public enum Rank{
@@ -68,13 +82,11 @@ public class Card {
 			Random random = new Random();
 			int index = random.nextInt(values().length);
 			return values()[index].toString();
-
 		}
 	};
-
 	@Override
 	public String toString() {
-		return "Card suit:"+ this.suit.toString()+"  Card rank:"+this.rank.toString();
+		return this.rank+" of "+ this.suit;
 	}
-	
+
 }
