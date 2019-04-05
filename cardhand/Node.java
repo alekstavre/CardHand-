@@ -13,6 +13,7 @@ public class Node<E> implements Position<E>{
         this.next = next;
      }
 
+    
     public E getElement() throws IllegalStateException {
         if (next == null) {
            throw new IllegalStateException("Position no longer valid");
@@ -40,4 +41,9 @@ public class Node<E> implements Position<E>{
      public void setNext(Node<E> next) {
         this.next = next;
      }
+     
+    @Override
+    public String toString() {
+    	return element.toString();
+    }
 }
